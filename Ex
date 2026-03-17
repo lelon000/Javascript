@@ -1,0 +1,320 @@
+///////////////////////////////////////////////////////////////
+// EXERCICE 1 — CALCULATRICE
+///////////////////////////////////////////////////////////////
+
+
+// fonction calculatrice
+// elle prend 3 paramètres :
+// a = premier nombre
+// b = deuxième nombre
+// op = opérateur (+ - * /)
+
+function calculatrice(a, b, op) {
+
+  // vérifier quel opérateur est utilisé
+
+  if (op === "+") {
+    
+    // si l’opérateur est "+"
+    // on retourne l’addition
+    return a + b
+
+  }
+
+  if (op === "-") {
+
+    // soustraction
+    return a - b
+
+  }
+
+  if (op === "*") {
+
+    // multiplication
+    return a * b
+
+  }
+
+  if (op === "/") {
+
+    // vérifier la division par zéro
+    if (b === 0) {
+
+      // division par zéro impossible
+      return "Erreur division par zéro"
+
+    }
+
+    // sinon on retourne la division
+    return a / b
+
+  }
+
+  // si aucun opérateur valide
+  return "Opérateur invalide"
+
+}
+
+
+
+// tester la fonction
+
+console.log(calculatrice(10,5,"+"))
+console.log(calculatrice(10,5,"-"))
+console.log(calculatrice(10,5,"*"))
+console.log(calculatrice(10,5,"/"))
+
+
+
+
+///////////////////////////////////////////////////////////////
+// EXERCICE 2 — FIZZBUZZ
+///////////////////////////////////////////////////////////////
+
+
+// boucle de 1 à 100
+
+for (let i = 1; i <= 100; i++) {
+
+  // vérifier si divisible par 3 ET 5
+
+  if (i % 3 === 0 && i % 5 === 0) {
+
+    console.log("FizzBuzz")
+
+  }
+
+  // divisible par 3
+
+  else if (i % 3 === 0) {
+
+    console.log("Fizz")
+
+  }
+
+  // divisible par 5
+
+  else if (i % 5 === 0) {
+
+    console.log("Buzz")
+
+  }
+
+  // sinon afficher le nombre
+
+  else {
+
+    console.log(i)
+
+  }
+
+}
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+// EXERCICE 3 — TODO LIST
+///////////////////////////////////////////////////////////////
+
+
+// tableau contenant les tâches
+
+let todos = []
+
+
+// fonction pour ajouter une tâche
+
+function ajouterTache(titre) {
+
+  // créer un objet tâche
+
+  let tache = {
+
+    titre: titre,   // nom de la tâche
+
+    fait: false     // par défaut la tâche n’est pas faite
+
+  }
+
+  // ajouter la tâche dans le tableau
+
+  todos.push(tache)
+
+}
+
+
+
+// fonction pour marquer une tâche comme faite
+
+function terminerTache(index) {
+
+  // accéder à la tâche dans le tableau
+
+  todos[index].fait = true
+
+}
+
+
+
+// fonction pour supprimer une tâche
+
+function supprimerTache(index) {
+
+  // splice supprime un élément du tableau
+
+  todos.splice(index, 1)
+
+}
+
+
+
+// tester
+
+ajouterTache("Faire les devoirs")
+ajouterTache("Coder en JS")
+
+console.log(todos)
+
+terminerTache(0)
+
+console.log(todos)
+
+supprimerTache(1)
+
+console.log(todos)
+
+
+
+
+<button id="plus">+</button>
+<button id="moins">-</button>
+
+<p id="compteur">0</p>
+
+///////////////////////////////////////////////////////////////
+// EXERCICE 4 — COMPTEUR
+///////////////////////////////////////////////////////////////
+
+
+// variable compteur
+
+let compteur = 0
+
+
+
+// récupérer les éléments HTML
+
+const boutonPlus = document.getElementById("plus")
+
+const boutonMoins = document.getElementById("moins")
+
+const affichage = document.getElementById("compteur")
+
+
+
+// événement clic bouton +
+
+boutonPlus.addEventListener("click", () => {
+
+  // augmenter la valeur
+
+  compteur++
+
+  // afficher la valeur dans la page
+
+  affichage.textContent = compteur
+
+})
+
+
+
+// événement clic bouton -
+
+boutonMoins.addEventListener("click", () => {
+
+  // diminuer la valeur
+
+  compteur--
+
+  // afficher la valeur
+
+  affichage.textContent = compteur
+
+})
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+// BONUS — TIMER
+///////////////////////////////////////////////////////////////
+
+
+// variable temps
+
+let temps = 0
+
+
+
+// setInterval répète une fonction
+
+let timer = setInterval(() => {
+
+  // augmenter le temps
+
+  temps++
+
+  // afficher dans le HTML
+
+  document.getElementById("timer").textContent = temps
+
+}, 1000)
+
+
+// arrêter le timer après 10 secondes
+
+setTimeout(() => {
+
+  clearInterval(timer)
+
+}, 10000)
+
+
+
+
+
+
+
+let t = 0
+
+setInterval(() => {
+
+  t++
+
+}, 1000)
+
+
+
+
+element.addEventListener("click", () => {
+
+})
+
+
+
+
+for (let i = 0; i < tableau.length; i++) {
+
+}
+
+
+
