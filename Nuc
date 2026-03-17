@@ -1,0 +1,424 @@
+////////////////////////////////////////////////////////////////
+// JAVASCRIPT — MASTER CHEATSHEET EXAM
+// Objectif : comprendre + réagir + réussir même si tu bloques
+////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 1 — COMPRENDRE CE QUE TU FAIS
+////////////////////////////////////////////////////////////////
+
+// JS = manipuler des valeurs + réagir à des actions + afficher
+
+// Toujours se poser ces questions :
+// 1. Quelle donnée je manipule ?
+// 2. Où elle est stockée ?
+// 3. Quand elle change ?
+// 4. Où je l’affiche ?
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 2 — VARIABLES (RAISONNEMENT)
+////////////////////////////////////////////////////////////////
+
+// Une variable = une boîte
+
+let score = 0       // score initial
+score = score + 1   // ajouter 1
+score++             // raccourci équivalent
+
+// piège classique :
+let x = 5
+let y = x           // copie la valeur, PAS le lien
+x = 10
+
+console.log(y)      // 5 (pas 10)
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 3 — COMPARAISONS (PIÈGES)
+////////////////////////////////////////////////////////////////
+
+// === compare valeur + type
+// == peut convertir → dangereux
+
+console.log(5 == "5")   // true ⚠️
+console.log(5 === "5")  // false ✅
+
+// règle : toujours utiliser ===
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 4 — CONDITIONS AVANCÉES
+////////////////////////////////////////////////////////////////
+
+let temperature = 30
+
+if (temperature > 25 && temperature < 40) {
+  console.log("Chaud mais supportable")
+}
+
+// && → ET (les deux doivent être vrais)
+// || → OU (un seul suffit)
+// ! → inverse
+
+let isOpen = false
+
+if (!isOpen) {
+  console.log("Fermé")
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 5 — BOUCLES (STRATÉGIE)
+////////////////////////////////////////////////////////////////
+
+// Quand utiliser une boucle ?
+// → quand tu dois répéter une action
+
+// cas 1 : nombre connu
+for (let i = 0; i < 10; i++) {
+  console.log(i)
+}
+
+// cas 2 : tableau
+let notes = [10, 15, 20]
+
+for (let i = 0; i < notes.length; i++) {
+  console.log(notes[i])
+}
+
+// cas 3 : chercher quelque chose
+let found = false
+
+for (let i = 0; i < notes.length; i++) {
+  if (notes[i] === 15) {
+    found = true
+  }
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 6 — FONCTIONS (LOGIQUE)
+////////////////////////////////////////////////////////////////
+
+// fonction = machine
+
+function multiplier(a, b) {
+  return a * b   // sortie
+}
+
+// règle :
+/*
+input → traitement → output
+*/
+
+// piège :
+function test() {
+  console.log("ok")
+}
+
+let result = test()   // result = undefined
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 7 — TABLEAUX (RÉFLEXES)
+////////////////////////////////////////////////////////////////
+
+let arr = [1,2,3]
+
+// ajouter
+arr.push(4)
+
+// supprimer dernier
+arr.pop()
+
+// supprimer index précis
+arr.splice(1,1)
+
+// parcourir + transformer
+let doubled = []
+
+for (let i = 0; i < arr.length; i++) {
+  doubled.push(arr[i] * 2)
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 8 — OBJETS (STRUCTURE)
+////////////////////////////////////////////////////////////////
+
+let user = {
+  name: "Kerem",
+  age: 18
+}
+
+// accès
+console.log(user.name)
+
+// ajout dynamique
+user.email = "test@mail.com"
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 9 — DOM (PENSER HTML)
+////////////////////////////////////////////////////////////////
+
+// JS contrôle le HTML
+
+let element = document.getElementById("title")
+
+// modifier texte
+element.textContent = "Hello"
+
+// modifier style
+element.style.color = "red"
+
+// ajouter classe
+element.classList.add("active")
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 10 — EVENTS (CLÉ DU FRONT)
+////////////////////////////////////////////////////////////////
+
+// structure universelle :
+
+element.addEventListener("event", () => {
+  // code
+})
+
+// exemples :
+
+document.getElementById("btn").addEventListener("click", () => {
+  console.log("click")
+})
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 11 — TIMER (STRUCTURE À RETENIR)
+////////////////////////////////////////////////////////////////
+
+// timer = boucle dans le temps
+
+let t = 0
+
+let id = setInterval(() => {
+
+  t++   // modification
+
+  console.log(t)  // affichage
+
+}, 1000)
+
+// arrêt
+clearInterval(id)
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 12 — TIMER AVEC CONDITION
+////////////////////////////////////////////////////////////////
+
+let seconds = 0
+
+let timer = setInterval(() => {
+
+  seconds++
+
+  if (seconds === 5) {
+    clearInterval(timer)
+  }
+
+}, 1000)
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 13 — PROBLÈME CLASSIQUE : COMPTEUR
+////////////////////////////////////////////////////////////////
+
+let count = 0
+
+document.getElementById("plus").addEventListener("click", () => {
+  count++
+  document.getElementById("display").textContent = count
+})
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 14 — PROBLÈME CLASSIQUE : REVERSE
+////////////////////////////////////////////////////////////////
+
+function reverse(arr) {
+
+  let result = []
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    result.push(arr[i])
+  }
+
+  return result
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 15 — PROBLÈME : CHERCHER MAX
+////////////////////////////////////////////////////////////////
+
+function max(arr) {
+
+  let max = arr[0]
+
+  for (let i = 1; i < arr.length; i++) {
+
+    if (arr[i] > max) {
+      max = arr[i]
+    }
+
+  }
+
+  return max
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 16 — PROBLÈME : SOMME
+////////////////////////////////////////////////////////////////
+
+function sum(arr) {
+
+  let total = 0
+
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i]
+  }
+
+  return total
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 17 — ERREURS COURANTES
+////////////////////////////////////////////////////////////////
+
+// oublier return
+// oublier i++
+// mauvais id HTML
+// variable non déclarée
+
+// debug :
+console.log("DEBUG:", variable)
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 18 — MÉTHODE POUR RÉUSSIR
+////////////////////////////////////////////////////////////////
+
+// 1. lire l’énoncé
+// 2. identifier:
+//    - variable ?
+/*   - boucle ?
+     - condition ?
+     - affichage ? */
+
+// 3. écrire étape par étape
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 19 — TEMPLATE UNIVERSEL
+////////////////////////////////////////////////////////////////
+
+// PROBLÈME :
+
+// 1. variable
+let data = 0
+
+// 2. action
+function doSomething() {
+
+  data++
+
+  console.log(data)
+
+}
+
+// 3. déclencheur
+setInterval(doSomething, 1000)
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 20 — SI TU BLOQUES
+////////////////////////////////////////////////////////////////
+
+// fais ça :
+
+// 1. console.log partout
+// 2. découpe le problème
+// 3. teste chaque partie
+// 4. simplifie
+
+
+
+////////////////////////////////////////////////////////////////
+// SECTION 21 — BONUS NIVEAU +1
+////////////////////////////////////////////////////////////////
+
+// filter manuel
+function filterEven(arr) {
+
+  let result = []
+
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] % 2 === 0) {
+      result.push(arr[i])
+    }
+
+  }
+
+  return result
+}
+
+
+
+// map manuel
+function squareAll(arr) {
+
+  let result = []
+
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i] * arr[i])
+  }
+
+  return result
+}
+
+
+
+////////////////////////////////////////////////////////////////
+// FIN — RÈGLE D’OR
+////////////////////////////////////////////////////////////////
+
+// SI TU COMPRENDS :
+// variable + boucle + condition + affichage
+
+// → tu peux résoudre 90% des exos
