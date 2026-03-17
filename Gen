@@ -1,0 +1,496 @@
+///////////////////////////////////////////////////////////////
+// JAVASCRIPT CHEATSHEET - B1
+// Fichier d’aide pour comprendre les bases de JavaScript
+// Chaque ligne est expliquée avec des commentaires //
+// Lis les commentaires pendant le contrôle si tu bloques
+///////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////
+// 1 — VARIABLES
+///////////////////////////////////////////////////////////////
+
+
+// let permet de créer une variable dont la valeur peut changer
+let age = 20
+
+// ici on modifie la valeur de la variable
+age = 21
+
+// console.log sert à afficher une valeur dans la console du navigateur
+// très utile pour vérifier si une variable fonctionne
+console.log(age)
+
+
+// const sert à créer une variable dont la référence ne peut pas être changée
+// on utilise const par défaut quand la valeur ne doit pas être réassignée
+const nom = "Alice"
+
+// afficher la valeur dans la console
+console.log(nom)
+
+
+
+///////////////////////////////////////////////////////////////
+// 2 — TYPES DE DONNÉES
+///////////////////////////////////////////////////////////////
+
+
+// typeof permet de connaître le type d'une valeur
+
+console.log(typeof "hello") 
+// affiche "string" car c’est du texte
+
+console.log(typeof 42)
+// affiche "number" car c’est un nombre
+
+console.log(typeof true)
+// affiche "boolean"
+
+console.log(typeof undefined)
+// affiche "undefined"
+
+
+// tableau
+let fruits = ["pomme", "banane", "kiwi"]
+
+// objet
+let user = {
+  nom: "Bob",
+  age: 20
+}
+
+
+
+///////////////////////////////////////////////////////////////
+// 3 — OPERATEURS
+///////////////////////////////////////////////////////////////
+
+
+// addition
+let a = 10
+let b = 5
+
+let resultat = a + b
+// ici resultat vaut 15
+
+console.log(resultat)
+
+
+// soustraction
+console.log(a - b)
+
+
+// multiplication
+console.log(a * b)
+
+
+// division
+console.log(a / b)
+
+
+// modulo (reste de division)
+console.log(a % b)
+
+
+
+///////////////////////////////////////////////////////////////
+// 4 — CONDITIONS
+///////////////////////////////////////////////////////////////
+
+
+let note = 14
+
+// if permet d’exécuter du code si la condition est vraie
+
+if (note >= 16) {
+
+  // ce bloc sera exécuté si note >= 16
+  console.log("Très bien")
+
+} else if (note >= 12) {
+
+  // exécuté si la première condition est fausse
+  console.log("Bien")
+
+} else {
+
+  // exécuté si toutes les conditions sont fausses
+  console.log("Insuffisant")
+
+}
+
+
+
+///////////////////////////////////////////////////////////////
+// 5 — OPERATEUR TERNAIRE
+///////////////////////////////////////////////////////////////
+
+
+// version courte d’un if
+
+let ageUser = 20
+
+let statut = ageUser >= 18 ? "Majeur" : "Mineur"
+
+// si ageUser >= 18 alors statut = "Majeur"
+// sinon statut = "Mineur"
+
+console.log(statut)
+
+
+
+///////////////////////////////////////////////////////////////
+// 6 — BOUCLE FOR
+///////////////////////////////////////////////////////////////
+
+
+// une boucle sert à répéter du code plusieurs fois
+
+for (let i = 0; i < 5; i++) {
+
+  // i commence à 0
+  // la boucle continue tant que i < 5
+  // i++ augmente i de 1 à chaque tour
+
+  console.log(i)
+
+}
+
+
+
+// résultat affiché :
+// 0
+// 1
+// 2
+// 3
+// 4
+
+
+
+///////////////////////////////////////////////////////////////
+// 7 — BOUCLE WHILE
+///////////////////////////////////////////////////////////////
+
+
+let compteur = 0
+
+// while exécute le code tant que la condition est vraie
+
+while (compteur < 5) {
+
+  console.log(compteur)
+
+  // on augmente le compteur sinon la boucle serait infinie
+  compteur++
+
+}
+
+
+
+///////////////////////////////////////////////////////////////
+// 8 — TABLEAUX
+///////////////////////////////////////////////////////////////
+
+
+// création d’un tableau
+let couleurs = ["rouge", "vert", "bleu"]
+
+// accéder au premier élément
+console.log(couleurs[0])
+
+// longueur du tableau
+console.log(couleurs.length)
+
+
+
+// ajouter un élément à la fin
+couleurs.push("jaune")
+
+// supprimer le dernier élément
+couleurs.pop()
+
+// ajouter au début
+couleurs.unshift("orange")
+
+// supprimer le premier élément
+couleurs.shift()
+
+
+
+///////////////////////////////////////////////////////////////
+// 9 — PARCOURIR UN TABLEAU
+///////////////////////////////////////////////////////////////
+
+
+let nombres = [10, 20, 30, 40]
+
+
+for (let i = 0; i < nombres.length; i++) {
+
+  // nombres[i] permet d’accéder à chaque élément du tableau
+
+  console.log(nombres[i])
+
+}
+
+
+
+///////////////////////////////////////////////////////////////
+// 10 — FONCTIONS
+///////////////////////////////////////////////////////////////
+
+
+// une fonction est un bloc de code réutilisable
+
+function addition(a, b) {
+
+  // a et b sont des paramètres
+
+  return a + b
+
+}
+
+
+// appeler la fonction
+let somme = addition(5, 3)
+
+console.log(somme)
+
+
+
+///////////////////////////////////////////////////////////////
+// 11 — ARROW FUNCTION
+///////////////////////////////////////////////////////////////
+
+
+// syntaxe plus courte pour créer une fonction
+
+const multiplier = (a, b) => {
+
+  return a * b
+
+}
+
+console.log(multiplier(4, 2))
+
+
+
+///////////////////////////////////////////////////////////////
+// 12 — OBJETS
+///////////////////////////////////////////////////////////////
+
+
+// un objet est une structure contenant des propriétés
+
+const etudiant = {
+
+  nom: "Alice",
+
+  age: 20,
+
+  filiere: "Informatique"
+
+}
+
+
+// accéder à une propriété
+
+console.log(etudiant.nom)
+
+console.log(etudiant.age)
+
+
+
+// modifier une propriété
+etudiant.age = 21
+
+
+
+///////////////////////////////////////////////////////////////
+// 13 — DOM (MANIPULATION HTML)
+///////////////////////////////////////////////////////////////
+
+
+// récupérer un élément HTML par son id
+
+const titre = document.getElementById("titre")
+
+
+// modifier le texte de cet élément
+
+titre.textContent = "Nouveau titre"
+
+
+
+///////////////////////////////////////////////////////////////
+// 14 — EVENT LISTENER
+///////////////////////////////////////////////////////////////
+
+
+// récupérer un bouton
+
+const bouton = document.getElementById("btn")
+
+
+// écouter un événement click
+
+bouton.addEventListener("click", () => {
+
+  // ce code s’exécute quand l’utilisateur clique
+
+  console.log("Bouton cliqué")
+
+})
+
+
+
+///////////////////////////////////////////////////////////////
+// 15 — COMPTEUR DE CLIC
+///////////////////////////////////////////////////////////////
+
+
+let clics = 0
+
+
+document.getElementById("btn").addEventListener("click", () => {
+
+  // augmenter la variable clics
+  clics++
+
+  // afficher la valeur dans la page HTML
+  document.getElementById("compteur").textContent = "Clics : " + clics
+
+})
+
+
+
+///////////////////////////////////////////////////////////////
+// 16 — TIMER (TRÈS IMPORTANT POUR TON CONTROLE)
+///////////////////////////////////////////////////////////////
+
+
+// variable qui stocke le temps
+let time = 0
+
+
+// setInterval exécute du code en boucle
+// toutes les X millisecondes
+
+const intervalId = setInterval(() => {
+
+  // augmenter le temps
+  time++
+
+  // afficher dans la console
+  console.log(time)
+
+}, 1000)
+
+
+// 1000 millisecondes = 1 seconde
+
+
+
+///////////////////////////////////////////////////////////////
+// 17 — ARRETER LE TIMER
+///////////////////////////////////////////////////////////////
+
+
+// clearInterval permet d’arrêter un setInterval
+
+clearInterval(intervalId)
+
+
+
+///////////////////////////////////////////////////////////////
+// 18 — TIMER AVEC AFFICHAGE HTML
+///////////////////////////////////////////////////////////////
+
+
+let seconds = 0
+
+
+let timer = setInterval(() => {
+
+  seconds++
+
+  // afficher le temps dans la page HTML
+  document.getElementById("timer").textContent = seconds
+
+}, 1000)
+
+
+
+///////////////////////////////////////////////////////////////
+// 19 — COUNTDOWN
+///////////////////////////////////////////////////////////////
+
+
+let countdown = 10
+
+
+let timer2 = setInterval(() => {
+
+  document.getElementById("timer").textContent = countdown
+
+  countdown--
+
+  if (countdown < 0) {
+
+    clearInterval(timer2)
+
+    document.getElementById("timer").textContent = "Terminé"
+
+  }
+
+}, 1000)
+
+
+
+///////////////////////////////////////////////////////////////
+// 20 — setTimeout
+///////////////////////////////////////////////////////////////
+
+
+// setTimeout exécute une fonction UNE SEULE FOIS après un délai
+
+setTimeout(() => {
+
+  console.log("2 secondes passées")
+
+}, 2000)
+
+
+
+///////////////////////////////////////////////////////////////
+// STRUCTURE À RETENIR POUR TON CONTROLE
+///////////////////////////////////////////////////////////////
+
+
+// TIMER
+
+let t = 0
+
+setInterval(() => {
+
+  t++
+
+}, 1000)
+
+
+
+// CLICK
+
+element.addEventListener("click", () => {
+
+})
+
+
+
+// BOUCLE
+
+for (let i = 0; i < tableau.length; i++) {
+
+}
